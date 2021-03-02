@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Front_FitBook/static/css/main.23ae95a7.chunk.css",
-    "main.js": "/Front_FitBook/static/js/main.720d16d2.chunk.js",
-    "main.js.map": "/Front_FitBook/static/js/main.720d16d2.chunk.js.map",
+    "main.js": "/Front_FitBook/static/js/main.915638a0.chunk.js",
+    "main.js.map": "/Front_FitBook/static/js/main.915638a0.chunk.js.map",
     "runtime-main.js": "/Front_FitBook/static/js/runtime-main.20b8fed1.js",
     "runtime-main.js.map": "/Front_FitBook/static/js/runtime-main.20b8fed1.js.map",
     "static/js/2.0f622e53.chunk.js": "/Front_FitBook/static/js/2.0f622e53.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.20b8fed1.js",
     "static/js/2.0f622e53.chunk.js",
     "static/css/main.23ae95a7.chunk.css",
-    "static/js/main.720d16d2.chunk.js"
+    "static/js/main.915638a0.chunk.js"
   ]
 }
