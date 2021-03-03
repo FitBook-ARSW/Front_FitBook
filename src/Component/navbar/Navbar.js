@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useAuth } from '../../context/AuthContext'
+import logo from '../../img/fitbook.png';
 const Navbar = props => {
 
     const [error, setError] = useState();
@@ -26,7 +27,7 @@ const Navbar = props => {
         <div className="container mx-auto bg-red-500 p-5 text-white">
             <nav className="flex justify-between">
                 <div>
-                    <p>Logo</p>
+                    <img className="object-scale-down w-12 h-12" src={logo}/>
                 </div>
                 <ul className="flex flex-row">
                     <li className="pr-5">Reservar</li>
