@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import { useAuth } from '../../context/AuthContext';
+import background from '../../img/login.jpg';
 
 const Login = props => {
 
@@ -29,7 +30,7 @@ const Login = props => {
 
     return (
         <div className="w-full h-screen flex">
-            <img src="https://wallpapercave.com/wp/wp2056219.jpg" alt="background" class="object-cover object-center h-screen w-7/12" />
+            <img src={background} alt="background" class="object-cover object-center h-screen w-7/12" />
             <div className="bg-gray-700 flex flex-col justify-center items-center w-5/12 shadow-lg">
                 <h1 className="text-3xl font-bold text-red-500 mb-2">LOGIN</h1>
                 {error}

@@ -9,11 +9,11 @@ const Procfile = props => {
     const { currentUser } = useAuth();
 
     return (
-        <div>
+        <div className="text-center">
             <Navbar/>
             <p>Procfile</p>
             <p>{JSON.stringify(currentUser)}</p>
-            <p>Email: {currentUser.email}</p>
+            <p>Email: {currentUser.email} email del usuario</p>
         </div>
     );
 }

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
+import background from '../../img/register.jpg';
 
 const Register = props => {
     const fullNameRef = useRef();
@@ -26,7 +27,7 @@ const Register = props => {
 
     return (
         <div class="w-full h-screen flex">
-            <img src="https://wallpapercave.com/wp/wp4507164.jpg" alt="background" class="object-cover object-center h-screen w-10/12" />
+            <img src={background} alt="background" class="object-cover object-center h-screen w-10/12" />
             <div class="bg-gray-700 min-h-screen flex flex-col">
                 <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                     <div class="bg-gray-500 px-6 py-8 rounded shadow-md text-black w-full">

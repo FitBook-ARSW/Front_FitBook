@@ -1,10 +1,10 @@
 import React from 'react';
-import Navbar from './navbar/Navbar';
+import Navbar from '../navbar/Navbar';
 const DashBoard = props => {
     
 
     return (
-        <div>
+        <div className="text-center">
             <Navbar/>
             <p>Dashboard</p>
         </div>

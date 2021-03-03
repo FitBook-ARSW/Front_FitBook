@@ -2,7 +2,7 @@ import Login from './Component/login/Login';
 import Register from './Component/register/Register'
 import { Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
-import DashBoard from './Component/Dashboard';
+import DashBoard from './Component/dashboard/Dashboard';
 import Procfile from './Component/procfile/Procfile';
 import PrivateRoute from './Component/privateRoute/PrivateRoute';
 function App() {
