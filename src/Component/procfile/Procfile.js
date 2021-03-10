@@ -11,8 +11,6 @@ const Procfile = props => {
     return (
         <div className="text-center">
             <Navbar/>
-            <p>Procfile</p>
-            <p>{JSON.stringify(currentUser)}</p>
             <p>Email: {currentUser.email} email del usuario</p>
         </div>
     );
