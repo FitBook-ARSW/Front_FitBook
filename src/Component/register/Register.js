@@ -19,6 +19,11 @@ const Register = props => {
     }
 
     const history = useHistory();
+
+    const returnLogin = () => {
+        history.push("/")
+    }
+
     const registerEvent = async () => {
         if (passwordRef.current.value !== confirmPasswordRef.current.value) {
             return setError('Las contraseñas no son iguales');
@@ -104,9 +109,9 @@ const Register = props => {
 
                     <div class="text-grey-dark mt-6">
                         ¿Ya tienes cuenta?
-                    <a class="no-underline border-b border-blue-500 text-blue-500" href="../">
+                    <button class="no-underline border-b border-blue-500 text-blue-500" type="link" onClick={returnLogin}>
                             Login
-                    </a>
+                    </button>
                     </div>
                 </div>
             </div>
