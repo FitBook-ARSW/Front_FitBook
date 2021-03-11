@@ -104,7 +104,7 @@ const Register = props => {
 
                     <div class="text-grey-dark mt-6">
                         ¿Ya tienes cuenta?
-                    <a class="no-underline border-b border-blue-500 text-blue-500" href="../login/">
+                    <a class="no-underline border-b border-blue-500 text-blue-500" href="../">
                             Login
                     </a>
                     </div>
