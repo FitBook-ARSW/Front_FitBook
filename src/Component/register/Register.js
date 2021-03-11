@@ -109,7 +109,7 @@ const Register = props => {
 
                     <div class="text-grey-dark mt-6">
                         ¿Ya tienes cuenta?
-                    <button class="no-underline border-b border-blue-500 text-blue-500" type="link" onClick={returnLogin}>
+                    <button class="no-underline border-b border-blue-500 text-blue-500" onClick={returnLogin}>
                             Login
                     </button>
                     </div>
