@@ -34,7 +34,7 @@ const Register = props => {
             setError('')
             setLoading(true)
             await register(emailRef.current.value, passwordRef.current.value);
-            axios.post('http://localhost:8080/users/newUser', {
+            axios.post('https://secure-lake-15708.herokuapp.com/users/newUser', {
                 cedula: ccRef.current.value,
                 fullName: fullNameRef.current.value,
                 email: emailRef.current.value,

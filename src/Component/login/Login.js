@@ -19,7 +19,7 @@ const Login = props => {
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value);
             
-            axios.get(`http://localhost:8080/users/email/${emailRef.current.value}`)
+            axios.get(`https://secure-lake-15708.herokuapp.com/users/email/${emailRef.current.value}`)
                 .then(response => {
                     localStorage.setItem('email',response.data.email);
                     localStorage.setItem('role',response.data.role);
