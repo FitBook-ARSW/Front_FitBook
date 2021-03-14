@@ -2,12 +2,14 @@ import React, { useRef, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import background from '../../img/register.jpg';
 import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 const Register = props => {
     const fullNameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const confirmPasswordRef = useRef();
+    const ccRef = useRef();
     const { register } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
@@ -32,6 +34,16 @@ const Register = props => {
             setError('')
             setLoading(true)
             await register(emailRef.current.value, passwordRef.current.value);
+            axios.post('http://localhost:8080/users/newUser', {
+                cedula: ccRef.current.value,
+                fullName: fullNameRef.current.value,
+                email: emailRef.current.value,
+                role: rol
+            }).then(response => {
+                console.log(response)
+            }).catch(error => {
+                console.log(`Error: ${error}`)
+            });
             history.push("/")
 
         } catch (error) {
@@ -45,7 +57,7 @@ const Register = props => {
             <img src={background} alt="background" class="object-cover object-center h-screen w-10/12" />
             <div class="bg-gray-700 flex flex-col justify-center items-center w-5/12 shadow-lg">
                 <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                    
+
                     <h1 class="mb-8 text-3xl text-center text-red-600">Sign Up</h1>
                     {error !== '' ?
                         <div role="alert">
@@ -62,6 +74,12 @@ const Register = props => {
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
                         placeholder="Full Name" ref={fullNameRef} />
+
+                    <input
+                        type="text"
+                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        name="numberCCUser"
+                        placeholder="C.C" ref={ccRef} />
 
                     <input
                         type="text"

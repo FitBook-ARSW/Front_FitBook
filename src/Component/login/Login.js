@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from '../../context/AuthContext';
 import background from '../../img/login.jpg';
 import logo from '../../img/fitbook.png';
+import axios from 'axios';
 
 const Login = props => {
 
@@ -17,6 +18,15 @@ const Login = props => {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value);
+            
+            axios.get(`http://localhost:8080/users/email/${emailRef.current.value}`)
+                .then(response => {
+                    localStorage.setItem('email',response.data.email);
+                    localStorage.setItem('role',response.data.role);
+                    localStorage.setItem('cedula',response.data.cedula);
+                    console.log(localStorage.getItem('email'),localStorage.getItem('role'),localStorage.getItem('cedula'));
+                })
+                .catch(error => console.log(`Error: ${error}`));
             history.push("/dashboard");
         } catch (error) {
             setError(error+'Error al autenticar');

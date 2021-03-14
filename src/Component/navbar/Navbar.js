@@ -17,6 +17,7 @@ const Navbar = props => {
         setError('');
         try {
             await logout();
+            localStorage.clear();
             history.push("/");
         } catch (error) {
             setError('Error al realizar el logout');
