@@ -5,6 +5,8 @@ import { AuthProvider } from './context/AuthContext';
 import DashBoard from './Component/dashboard/Dashboard';
 import Procfile from './Component/procfile/Procfile';
 import PrivateRoute from './Component/privateRoute/PrivateRoute';
+import AdminRoute from './Component/adminRoute/AdminRoute';
+import ManageUser from './Component/manageUser/ManageUser';
 function App() {
   return (
     <AuthProvider>
@@ -13,6 +15,7 @@ function App() {
         <Route path="/register" component={Register} />
         <PrivateRoute path="/dashboard" component={DashBoard} />
         <PrivateRoute path="/procfile" component={Procfile} />
+        <ManageUser path="/manage" component={ManageUser} />
       </Switch>
     </AuthProvider>
   );
