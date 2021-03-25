@@ -2,7 +2,7 @@ import React from 'react';
 
 
 const ManageUser = props => {
-    return localStorage.getItem('role') === 'box' ? <p>Manege User</p> : null
+    return <p>Manege User</p>;
 }
 
 export default ManageUser;

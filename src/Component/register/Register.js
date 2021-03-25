@@ -53,81 +53,81 @@ const Register = props => {
     }
 
     return (
-        <div class="w-full h-screen flex">
-            <img src={background} alt="background" class="object-cover object-center h-screen w-10/12" />
-            <div class="bg-gray-700 flex flex-col justify-center items-center w-5/12 shadow-lg">
-                <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
+        <div className="w-full h-screen flex">
+            <img src={background} alt="background" className="object-cover object-center h-screen w-10/12" />
+            <div className="bg-gray-700 flex flex-col justify-center items-center w-5/12 shadow-lg">
+                <div className="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
 
-                    <h1 class="mb-8 text-3xl text-center text-red-600">Sign Up</h1>
+                    <h1 className="mb-8 text-3xl text-center text-red-600">Sign Up</h1>
                     {error !== '' ?
                         <div role="alert">
-                            <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
+                            <div className="bg-red-500 text-white font-bold rounded-t px-4 py-2">
                                 Error
                                 </div>
-                            <div class="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700 mb-3">
+                            <div className="border border-t-0 border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700 mb-3">
                                 <p>{error}</p>
                             </div>
                         </div> : null
                     }
                     <input
                         type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
                         placeholder="Full Name" ref={fullNameRef} />
 
                     <input
                         type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="numberCCUser"
                         placeholder="C.C" ref={ccRef} />
 
                     <input
                         type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
                         placeholder="Email" ref={emailRef} />
 
                     <input
                         type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
                         placeholder="Password" ref={passwordRef} />
 
                     <input
                         type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
+                        className="block border border-grey-light w-full p-3 rounded mb-4"
                         name="confirm_password"
                         placeholder="Confirm Password" ref={confirmPasswordRef} />
 
-                    <div class="mt-4 text-center">
-                        <span class="text-red-600">Account Type</span>
-                        <div class="flex justify-center mt-2">
-                            <label class="inline-flex items-center">
-                                <input type="radio" class="form-radio" name="accountType" value="athlete" onClick={() => checkBox("athlete")} />
-                                <span class="ml-2">Athlete</span>
+                    <div className="mt-4 text-center">
+                        <span className="text-red-600">Account Type</span>
+                        <div className="flex justify-center mt-2">
+                            <label className="inline-flex items-center">
+                                <input type="radio" className="form-radio" name="accountType" value="athlete" onClick={() => checkBox("athlete")} />
+                                <span className="ml-2">Athlete</span>
                             </label>
-                            <label class="inline-flex items-center ml-6">
-                                <input type="radio" class="form-radio" name="accountType" value="box" onClick={() => checkBox("box")} />
-                                <span class="ml-2">Box</span>
+                            <label className="inline-flex items-center ml-6">
+                                <input type="radio" className="form-radio" name="accountType" value="box" onClick={() => checkBox("box")} />
+                                <span className="ml-2">Box</span>
                             </label>
                         </div>
                     </div>
 
                     <button
                         type="submit"
-                        class="w-full text-center py-3 rounded bg-red-600 text-white hover:bg-red-700 focus:outline-none my-1"
+                        className="w-full text-center py-3 rounded bg-red-600 text-white hover:bg-red-700 focus:outline-none my-1"
                         disabled={loading}
                         onClick={registerEvent}
                     >Create Account</button>
 
-                    <div class="text-center text-sm text-grey-dark mt-4">
+                    <div className="text-center text-sm text-grey-dark mt-4">
                         Vive la experiencia de compartir tu pasión por el Crossfit con personas que te entenderán
                         </div>
 
 
-                    <div class="text-grey-dark mt-6">
+                    <div className="text-grey-dark mt-6">
                         ¿Ya tienes cuenta?
-                    <button class="no-underline border-b border-blue-500 text-blue-500" onClick={returnLogin}>
+                    <button className="no-underline border-b border-blue-500 text-blue-500" onClick={returnLogin}>
                             Login
                     </button>
                     </div>

@@ -15,7 +15,7 @@ function App() {
         <Route path="/register" component={Register} />
         <PrivateRoute path="/dashboard" component={DashBoard} />
         <PrivateRoute path="/procfile" component={Procfile} />
-        <ManageUser path="/manage" component={ManageUser} />
+        <AdminRoute path="/manage" component={ManageUser} />
       </Switch>
     </AuthProvider>
   );

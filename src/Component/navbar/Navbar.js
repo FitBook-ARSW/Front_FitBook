@@ -13,6 +13,10 @@ const Navbar = props => {
         history.push("/procfile");
     }
 
+    const redirectPublication = () => {
+        history.push("/dashboard");
+    }
+
     const actionLogout = async () => {
         setError('');
         try {
@@ -25,14 +29,14 @@ const Navbar = props => {
     }
 
     return (
-        <div className="container mx-auto bg-red-500 p-5 text-white">
+        <div className="fixed shadow-md w-full bg-red-500 p-5 text-white">
             <nav className="flex justify-between">
                 <div>
                     <img className="object-scale-down w-12 h-12" src={logo}/>
                 </div>
                 <ul className="flex flex-row">
                     <li className="pr-5">Reservar</li>
-                    <li className="pr-5">Publicaciones</li>
+                    <li className="pr-5"><button variant="link" onClick={redirectPublication}>Publication</button></li>
                     <li className="pr-5"><button variant="link" onClick={redirectProcfile}>Perfil</button></li>
                     <li className="pr-5"><button variant="link" onClick={actionLogout}>Log out</button></li>
                 </ul>
