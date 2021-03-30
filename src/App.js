@@ -7,6 +7,7 @@ import Procfile from './Component/procfile/Procfile';
 import PrivateRoute from './Component/privateRoute/PrivateRoute';
 import AdminRoute from './Component/adminRoute/AdminRoute';
 import ManageUser from './Component/manageUser/ManageUser';
+import AddPublication from './Component/addPublication/AddPublication';
 function App() {
   return (
     <AuthProvider>
@@ -16,6 +17,7 @@ function App() {
         <PrivateRoute path="/dashboard" component={DashBoard} />
         <PrivateRoute path="/procfile" component={Procfile} />
         <AdminRoute path="/manage" component={ManageUser} />
+        <PrivateRoute path="/addPublication" component={AddPublication}/>
       </Switch>
     </AuthProvider>
   );

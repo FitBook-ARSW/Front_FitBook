@@ -29,7 +29,7 @@ const Navbar = props => {
     }
 
     return (
-        <div className="fixed shadow-md w-full bg-red-500 p-5 text-white">
+        <div className="shadow-md w-full bg-red-500 p-5 text-white">
             <nav className="flex justify-between">
                 <div>
                     <img className="object-scale-down w-12 h-12" src={logo}/>
