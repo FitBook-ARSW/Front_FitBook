@@ -36,8 +36,8 @@ const DashBoard = props => {
 
     if (publications.length > 0) {
         publi = (
-            publications.map(ele => {
-                return (<Publication user={ele.mail} likes={ele.likes} content={ele.content} uploaDate={ele.uploaDate} />);
+            publications.map((ele,index) => {
+                return (<Publication key={index} user={ele.mail} likes={ele.likes} content={ele.content} uploaDate={ele.uploaDate} />);
             })
         );
     }

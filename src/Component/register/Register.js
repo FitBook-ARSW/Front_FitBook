@@ -26,6 +26,16 @@ const Register = props => {
         history.push("/")
     }
 
+    const registerBox = () => {
+        axios.post('http://localhost:8080/box/add', {
+            name: fullNameRef.current.value
+        }).then(response => {
+            console.log('Se registro un box')
+        }).catch(error => {
+            console.log(`Error: ${error}`)
+        });
+    }
+
     const registerEvent = async () => {
         if (passwordRef.current.value !== confirmPasswordRef.current.value) {
             return setError('Las contraseñas no son iguales');
@@ -34,18 +44,24 @@ const Register = props => {
             setError('')
             setLoading(true)
             await register(emailRef.current.value, passwordRef.current.value);
-            axios.post('https://secure-lake-15708.herokuapp.com/users/newUser', {
-                cedula: ccRef.current.value,
-                fullName: fullNameRef.current.value,
-                email: emailRef.current.value,
-                role: rol
-            }).then(response => {
-                console.log(response)
-            }).catch(error => {
-                console.log(`Error: ${error}`)
-            });
-            history.push("/")
-
+            if (rol != '') {
+                axios.post('https://secure-lake-15708.herokuapp.com/users/newUser', {
+                    cedula: ccRef.current.value,
+                    fullName: fullNameRef.current.value,
+                    email: emailRef.current.value,
+                    role: rol
+                }).then(response => {
+                    console.log(response)
+                }).catch(error => {
+                    console.log(`Error: ${error}`)
+                });
+                if(rol == 'box'){
+                    registerBox();
+                }
+                history.push("/")
+            } else {
+                alert("Escoge tu tipo de usuarios PLS!!");
+            }
         } catch (error) {
             setError(error.toString());
         }

@@ -24,7 +24,8 @@ const Login = props => {
                     localStorage.setItem('email',response.data.email);
                     localStorage.setItem('role',response.data.role);
                     localStorage.setItem('cedula',response.data.cedula);
-                    console.log(localStorage.getItem('email'),localStorage.getItem('role'),localStorage.getItem('cedula'));
+                    localStorage.setItem('box',response.data.box);
+                    console.log(localStorage.getItem('email'),localStorage.getItem('role'),localStorage.getItem('cedula'),localStorage.getItem('box'));
                 })
                 .catch(error => console.log(`Error: ${error}`));
             history.push("/dashboard");
