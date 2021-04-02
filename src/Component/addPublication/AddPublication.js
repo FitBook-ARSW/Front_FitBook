@@ -20,7 +20,7 @@ const AddPublication = props => {
     }
 
     const addPublicationClick = () => {
-        axios.post('http://localhost:8080/publications/add', {
+        axios.post('https://secure-lake-15708.herokuapp.com/publications/add', {
             content: content,
             mail: localStorage.getItem('email')
         }).then(response => {
