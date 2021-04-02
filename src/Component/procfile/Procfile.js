@@ -6,7 +6,6 @@ import axios from 'axios';
 const Procfile = props => {
 
 
-    const [error, setError] = useState();
     const [visible, setVisible] = useState(false);
     const [boxes, setBoxes] = useState('');
     const { currentUser } = useAuth();
@@ -18,7 +17,7 @@ const Procfile = props => {
             }).catch(error => {
                 console.log(`Error: ${error}`)
             });
-        localStorage.setItem('box',boxId);
+        localStorage.setItem('box', boxId);
         setVisible(false);
     }
 
@@ -47,11 +46,11 @@ const Procfile = props => {
         data = (
             boxes.map((ele, index) => {
                 return (
-                    <tr key={index} class="bg-gray-700 border-b border-gray-600">
-                        <th class="px-4 py-3">{ele.id}</th>
-                        <th class="px-4 py-3">{ele.name}</th>
-                        <th class="px-4 py-3">
-                            <button onClick={() => enrollUserToBox(localStorage.getItem('email'),ele.id)} class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Select</button>
+                    <tr key={index} className="bg-gray-700 border-b border-gray-600">
+                        <th className="px-4 py-3">{ele.id}</th>
+                        <th className="px-4 py-3">{ele.name}</th>
+                        <th className="px-4 py-3">
+                            <button onClick={() => enrollUserToBox(localStorage.getItem('email'), ele.id)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Select</button>
                         </th>
                     </tr>
                 )
@@ -65,20 +64,22 @@ const Procfile = props => {
             <p>Email: {currentUser.email} email del usuario</p>
             {(localStorage.getItem('role') === 'athlete' && localStorage.getItem('box') == 'null') ?
                 <button onClick={showBoxes} className="block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Elegir Box</button>
-                : null 
+                : null
             }
             {visible ?
-                <table class="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
-                    <tr class="text-center border-b border-gray-300">
-                        <th class="px-4 py-3">Id</th>
-                        <th class="px-4 py-3">Nombre</th>
-                        <th class="px-4 py-3">Seleccionar</th>
-                    </tr>
-                    {data}
+                <table className="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
+                    <thead>
+                        <tr className="text-center border-b border-gray-300">
+                            <th className="px-4 py-3">Id</th>
+                            <th className="px-4 py-3">Nombre</th>
+                            <th className="px-4 py-3">Seleccionar</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data}
+                    </tbody>
                 </table>
                 : null}
-
-            
         </div>
     );
 }
