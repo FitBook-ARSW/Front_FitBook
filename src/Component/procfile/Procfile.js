@@ -11,7 +11,7 @@ const Procfile = props => {
     const { currentUser } = useAuth();
 
     const enrollUserToBox = (mail, boxId) => {
-        axios.post(`https://secure-lake-15708.herokuapp.com/users/${mail}/${boxId}`)
+        axios.post(`https://seclocalStorage.getItem('box')ure-lake-15708.herokuapp.com/users/${mail}/${boxId}`)
             .then(response => {
                 console.log(response);
             }).catch(error => {
@@ -38,6 +38,16 @@ const Procfile = props => {
         }
     }
 
+    const unrollForBox = () => {
+        axios.post(`https://secure-lake-15708.herokuapp.com/users/box/${localStorage.getItem('email')}`)
+            .then(response => {
+                localStorage.setItem('box','null');
+                alert('OK');
+            }).catch(error => {
+                alert('Error al salir del box');
+            })
+    }
+
     let data = (
         <p>Loading...</p>
     );
@@ -62,9 +72,9 @@ const Procfile = props => {
         <div className="text-center">
             <Navbar />
             <p>Email: {currentUser.email} email del usuario</p>
-            {(localStorage.getItem('role') === 'athlete' && localStorage.getItem('box') == 'null') ?
+            {(localStorage.getItem('role') === 'athlete' && localStorage.getItem('box') === 'null') ?
                 <button onClick={showBoxes} className="block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Elegir Box</button>
-                : null
+                : <button onClick={unrollForBox} className="block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Salirme del Box</button>
             }
             {visible ?
                 <table className="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
