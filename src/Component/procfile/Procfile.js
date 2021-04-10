@@ -14,6 +14,7 @@ const Procfile = props => {
         axios.post(`https://seclocalStorage.getItem('box')ure-lake-15708.herokuapp.com/users/${mail}/${boxId}`)
             .then(response => {
                 console.log(response);
+                alert('¡Te inscribiste correctamente!');
             }).catch(error => {
                 console.log(`Error: ${error}`)
             });
@@ -42,7 +43,7 @@ const Procfile = props => {
         axios.post(`https://secure-lake-15708.herokuapp.com/users/box/${localStorage.getItem('email')}`)
             .then(response => {
                 localStorage.setItem('box','null');
-                alert('OK');
+                alert('¡Te saliste del BOX!');
             }).catch(error => {
                 alert('Error al salir del box');
             })
@@ -74,8 +75,14 @@ const Procfile = props => {
             <p>Email: {currentUser.email} email del usuario</p>
             {(localStorage.getItem('role') === 'athlete' && localStorage.getItem('box') === 'null') ?
                 <button onClick={showBoxes} className="block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Elegir Box</button>
-                : <button onClick={unrollForBox} className="block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Salirme del Box</button>
+                : null
             }
+
+            {(localStorage.getItem('role') === 'athlete' && localStorage.getItem('box') !== 'null') ? 
+                <button onClick={unrollForBox} className="block bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Salirme del Box</button>
+                : null            
+            }
+
             {visible ?
                 <table className="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
                     <thead>
