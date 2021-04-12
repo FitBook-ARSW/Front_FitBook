@@ -16,7 +16,7 @@ const DashBoard = props => {
     }
 
     const getPublications = () => {
-        axios.get('https://secure-lake-15708.herokuapp.com/publications')
+        axios.get('http://localhost:8080/publications')
             .then(response => {
                 setLoading(false);
                 console.log(response.data);
@@ -37,7 +37,7 @@ const DashBoard = props => {
     if (publications.length > 0) {
         publi = (
             publications.map((ele,index) => {
-                return (<Publication key={index} user={ele.mail} likes={ele.likes} content={ele.content} uploaDate={ele.uploaDate} />);
+                return (<Publication key={index} user={ele.mail} likes={ele.likes} content={ele.content} uploaDate={ele.uploaDate} imgUrl={ele.imgUrl} />);
             })
         );
     }
