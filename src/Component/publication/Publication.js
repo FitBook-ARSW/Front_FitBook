@@ -6,7 +6,7 @@ const Publication = props => {
             <div>
                 <div className="flex flex-col max-w-md bg-gray-500 px-8 py-6 rounded-xl space-y-5 items-center text-white">
                     <h3 className="font-serif font-bold text-xl">{props.user}</h3>
-                    {props.imgUrl == null ?
+                    {(props.imgUrl == "" || props.imgUrl == null) ?
                         <img className="w-full rounded-md" src="https://coffeeordie.com/wp-content/uploads/2019/03/FraserCOVER2.jpg" alt="motivation" />
                         : <img className="w-full rounded-md" src={props.imgUrl} alt="motivation" />
                     }

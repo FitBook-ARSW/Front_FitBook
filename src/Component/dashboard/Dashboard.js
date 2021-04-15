@@ -16,7 +16,7 @@ const DashBoard = props => {
     }
 
     const getPublications = () => {
-        axios.get('http://localhost:8080/publications')
+        axios.get('https://secure-lake-15708.herokuapp.com/publications')
             .then(response => {
                 setLoading(false);
                 console.log(response.data);
