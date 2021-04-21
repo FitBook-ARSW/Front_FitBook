@@ -71,6 +71,7 @@ const AddPublication = props => {
                 </div>
             </div>
         </div>
+
     );
 }
 
