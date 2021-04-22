@@ -37,7 +37,16 @@ const DashBoard = props => {
     if (publications.length > 0) {
         publi = (
             publications.map((ele,index) => {
-                return (<Publication key={index} user={ele.mail} likes={ele.likes} content={ele.content} uploaDate={ele.uploaDate} imgUrl={ele.imgUrl} />);
+                const numLikes = () => {
+                axios.get(`https://secure-lake-15708.herokuapp.com/likes/${ele.publication_id}`)
+                    .then((response) => {
+                        console.log(response);
+                    })
+                    .catch((error) => {
+                        console.log(`Error: ${error}`);
+                    });
+                }
+                return (<Publication key={index} user={ele.mail} likes={numLikes} content={ele.content} uploaDate={ele.uploaDate} imgUrl={ele.imgUrl} />);
             })
         );
     }

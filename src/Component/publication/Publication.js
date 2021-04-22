@@ -3,7 +3,7 @@ import IconButton from '@material-ui/core/IconButton';
 import StarIcon from '@material-ui/icons/Star';
 
 const Publication = props => {
-    const [likes,setLikes] = useState(false);
+    const [likes,setLikes] = useState(true);
     const addlikes= () => {
         setLikes(!likes);
         console.log(likes);
@@ -18,7 +18,7 @@ const Publication = props => {
                         <img className="w-full rounded-md" src="https://coffeeordie.com/wp-content/uploads/2019/03/FraserCOVER2.jpg" alt="motivation" />
                         : <img className="w-full rounded-md" src={props.imgUrl} alt="motivation" />
                     }
-                    <p className="text-center">
+                    <p className="text-center">{props.likes}
                     <IconButton onClick={() => addlikes() } color={likes? 'delete' : 'secondary'} aria-label="add to shopping cart">
                         <StarIcon />
                     </IconButton>
