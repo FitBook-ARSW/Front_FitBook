@@ -8,6 +8,7 @@ const DashBoard = props => {
 
     const [publications, setPublications] = useState('');
     const [loading, setLoading] = useState(false);
+    var nlikes;
 
     const history = useHistory();
 
@@ -19,7 +20,7 @@ const DashBoard = props => {
         axios.get('https://secure-lake-15708.herokuapp.com/publications')
             .then(response => {
                 setLoading(false);
-                console.log(response.data);
+                //console.log(response.data);
                 setPublications(response.data);
 
             })
@@ -27,6 +28,7 @@ const DashBoard = props => {
                 console.log(`Error: ${error}`)
             });
     }
+    
 
     useEffect(() => {
         getPublications();
@@ -37,16 +39,9 @@ const DashBoard = props => {
     if (publications.length > 0) {
         publi = (
             publications.map((ele,index) => {
-                const numLikes = () => {
-                axios.get(`https://secure-lake-15708.herokuapp.com/likes/${ele.publication_id}`)
-                    .then((response) => {
-                        console.log(response);
-                    })
-                    .catch((error) => {
-                        console.log(`Error: ${error}`);
-                    });
-                }
-                return (<Publication key={index} user={ele.mail} likes={numLikes} content={ele.content} uploaDate={ele.uploaDate} imgUrl={ele.imgUrl} />);
+                //numLikes(ele.id);
+                //console.log("ID = ",ele.id," ","LIKES = ",nlikes);
+                return (<Publication key={index} id={ele.id} user={ele.mail} likes={nlikes} content={ele.content} uploaDate={ele.uploaDate} imgUrl={ele.imgUrl} />);
             })
         );
     }
