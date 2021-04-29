@@ -18,7 +18,7 @@ const Login = props => {
             setError('')
             setLoading(true)
             await login(emailRef.current.value, passwordRef.current.value);
-            
+            console.log(emailRef.current.value)
             axios.get(`https://secure-lake-15708.herokuapp.com/users/email/${emailRef.current.value}`)
                 .then(response => {
                     localStorage.setItem('email',response.data.email);
@@ -29,7 +29,7 @@ const Login = props => {
                     localStorage.setItem('url',response.data.url)
                     console.log(localStorage.getItem('url'));
                 })
-                .catch(error => console.log(`Error: ${error}`));
+                .catch(error => alert('Error in Procfile'));
             history.push("/dashboard");
         } catch (error) {
             setError(error+'Error al autenticar');
