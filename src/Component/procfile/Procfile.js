@@ -8,7 +8,9 @@ const Procfile = props => {
 
 
     const [visible, setVisible] = useState(false);
+    const [visibleMembers, setVisibleMembers] = useState(false);
     const [boxes, setBoxes] = useState('');
+    const [members, setMembers] = useState('');
     const [image, setImage] = useState('');
     const { currentUser } = useAuth();
 
@@ -40,6 +42,23 @@ const Procfile = props => {
                     alert(`${error}`);
                 })
             setVisible(true);
+        }
+    }
+
+    const showMembers = () => {
+        if (visibleMembers) {
+            setVisibleMembers(false)
+        }
+        else {
+            console.log(localStorage.getItem('cedula'));
+            axios.get(`http://localhost:8080/users/box/${localStorage.getItem('cedula')}`)
+                .then(response => {
+                    setMembers(response.data)
+                })
+                .catch(error => {
+                    alert(error);
+                })
+            setVisibleMembers(true);
         }
     }
 
@@ -103,6 +122,25 @@ const Procfile = props => {
                         <th className="px-4 py-3">
                             <button onClick={() => enrollUserToBox(localStorage.getItem('email'), ele.id)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Select</button>
                         </th>
+                    </tr>
+                )
+            })
+        );
+    }
+
+    let membersData = (
+        <p>Loading...</p>
+    );
+
+    if (members.length > 0) {
+        membersData = (
+            members.map((ele, index) => {
+                return (
+                    <tr key={index} className="bg-gray-700 border-b border-gray-600">
+                        <th className="px-4 py-3">{ele.fullName}</th>
+                        <th className="px-4 py-3">{ele.email}</th>
+                        <th className="px-4 py-3">{ele.cedula}</th>
+                        <th className="px-4 py-3">{ele.active}</th>
                     </tr>
                 )
             })
@@ -174,11 +212,27 @@ const Procfile = props => {
                 {localStorage.getItem('role') == 'box' ?
                     <div className="flex flex-col">
                         <div className="flex-initial">
-                            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Administrar Miembros</button>
+                            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3" onClick={showMembers}>Administrar Miembros</button>
                         </div>
                     </div>
                     : null
                 }
+
+                {visibleMembers ?
+                    <table className="rounded-t-lg m-5 w-5/6 mx-auto bg-gray-800 text-gray-200">
+                        <thead>
+                            <tr className="text-center border-b border-gray-300">
+                                <th className="px-4 py-3">Nombre</th>
+                                <th className="px-4 py-3">Email</th>
+                                <th className="px-4 py-3">Cedula</th>
+                                <th className="px-4 py-3">Activo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {membersData}
+                        </tbody>
+                    </table>
+                    : null}
 
 
             </div>
