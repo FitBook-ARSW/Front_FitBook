@@ -28,7 +28,8 @@ const Register = props => {
 
     const registerBox = () => {
         axios.post('https://secure-lake-15708.herokuapp.com/box/add', {
-            name: fullNameRef.current.value
+            name: fullNameRef.current.value,
+            document: ccRef.current.value
         }).then(response => {
             console.log('Se registro un box')
         }).catch(error => {
