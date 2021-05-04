@@ -28,6 +28,26 @@ const Procfile = props => {
         setVisible(false);
     }
 
+    const changeStateToTrue = document => {
+        axios.post(`http://localhost:8080/users/state/true/${document}`)
+            .then(response => {
+                alert('Se activo correctamente el miembro');
+            })
+            .catch(error => {
+                alert('No se activo correctamente el miembro');
+            })
+    }
+
+    const changeStateToFalse = document => {
+        axios.post(`http://localhost:8080/users/state/false/${document}`)
+            .then(response => {
+                alert('Se desactivo correctamente el miembro');
+            })
+            .catch(error => {
+                alert('No se desactivo correctamente el miembro');
+            })
+    }
+
     const showBoxes = () => {
         if (visible) {
             setVisible(false)
@@ -140,7 +160,13 @@ const Procfile = props => {
                         <th className="px-4 py-3">{ele.fullName}</th>
                         <th className="px-4 py-3">{ele.email}</th>
                         <th className="px-4 py-3">{ele.cedula}</th>
-                        <th className="px-4 py-3">{ele.active}</th>
+                        <th className="px-4 py-3">{ele.active.toString()}</th>
+                        <th className="px-4 py-3">
+                            {ele.active ? 
+                            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => changeStateToFalse(ele.cedula)}>Desactivar</button>
+                            :
+                            <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => changeStateToTrue(ele.cedula)}>Activar</button>}
+                        </th>
                     </tr>
                 )
             })
@@ -226,6 +252,7 @@ const Procfile = props => {
                                 <th className="px-4 py-3">Email</th>
                                 <th className="px-4 py-3">Cedula</th>
                                 <th className="px-4 py-3">Activo</th>
+                                <th className="px-4 py-3">Activar</th>
                             </tr>
                         </thead>
                         <tbody>
