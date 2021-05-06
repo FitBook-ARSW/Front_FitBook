@@ -206,7 +206,7 @@ const Procfile = props => {
                                 }
                                 <p className="text-sm">{localStorage.getItem('role')}</p>
                                 <p className="text-sm">{localStorage.getItem('email')}</p>
-                            </div><button onClick={unrollForBox} className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3">Salirme del Box</button>
+                            </div>
                             <div className="flex items-center justify-center bg-white">
                                 <label className="w-64 flex flex-col items-center px-4 py-6 bg-white text-blue-500 rounded-lg shadow-lg tracking-wide uppercase border border-blue-500 cursor-pointer hover:bg-blue-500 hover:text-white">
                                     <svg className="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
