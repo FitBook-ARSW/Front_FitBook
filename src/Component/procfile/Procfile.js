@@ -71,7 +71,7 @@ const Procfile = props => {
         }
         else {
             console.log(localStorage.getItem('cedula'));
-            axios.get(`http://localhost:8080/users/box/${localStorage.getItem('cedula')}`)
+            axios.get(`https://secure-lake-15708.herokuapp.com/users/box/${localStorage.getItem('cedula')}`)
                 .then(response => {
                     setMembers(response.data)
                 })
