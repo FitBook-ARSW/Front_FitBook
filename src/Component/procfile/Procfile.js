@@ -29,7 +29,7 @@ const Procfile = props => {
     }
 
     const changeStateToTrue = document => {
-        axios.post(`http://localhost:8080/users/state/true/${document}`)
+        axios.post(`https://secure-lake-15708.herokuapp.com/users/state/true/${document}`)
             .then(response => {
                 alert('Se activo correctamente el miembro');
             })
@@ -39,7 +39,7 @@ const Procfile = props => {
     }
 
     const changeStateToFalse = document => {
-        axios.post(`http://localhost:8080/users/state/false/${document}`)
+        axios.post(`https://secure-lake-15708.herokuapp.com/users/state/false/${document}`)
             .then(response => {
                 alert('Se desactivo correctamente el miembro');
             })
