@@ -4,6 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
 import DashBoard from './Component/dashboard/Dashboard';
 import Procfile from './Component/procfile/Procfile';
+import Booking from './Component/booking/Booking';
 import PrivateRoute from './Component/privateRoute/PrivateRoute';
 import AdminRoute from './Component/adminRoute/AdminRoute';
 import ManageUser from './Component/manageUser/ManageUser';
@@ -16,6 +17,7 @@ function App() {
         <Route path="/register" component={Register} />
         <PrivateRoute path="/dashboard" component={DashBoard} />
         <PrivateRoute path="/procfile" component={Procfile} />
+        <PrivateRoute path="/bookings" component={Booking} />
         <AdminRoute path="/manage" component={ManageUser} />
         <PrivateRoute path="/addPublication" component={AddPublication}/>
       </Switch>

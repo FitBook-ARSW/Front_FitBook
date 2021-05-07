@@ -17,6 +17,10 @@ const Navbar = props => {
         history.push("/dashboard");
     }
 
+    const redirectBookings = () => {
+        history.push("/bookings");
+    }
+
     const actionLogout = async () => {
         setError('');
         try {
@@ -35,10 +39,10 @@ const Navbar = props => {
                     <img className="object-scale-down w-12 h-12" src={logo}/>
                 </div>
                 <ul className="flex flex-row">
-                    <li className="pr-5">Reservar</li>
-                    <li className="pr-5"><button variant="link" onClick={redirectPublication}>Publication</button></li>
+                    <li className="pr-5"><button variant="link" onClick={redirectBookings}>Reservar</button></li>
+                    <li className="pr-5"><button variant="link" onClick={redirectPublication}>Publicaciones</button></li>
                     <li className="pr-5"><button variant="link" onClick={redirectProcfile}>Perfil</button></li>
-                    <li className="pr-5"><button variant="link" onClick={actionLogout}>Log out</button></li>
+                    <li className="pr-5"><button variant="link" onClick={actionLogout}>Cerrar sesion</button></li>
                 </ul>
             </nav>
         </div>
