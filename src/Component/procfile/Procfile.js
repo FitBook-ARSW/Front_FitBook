@@ -16,6 +16,10 @@ const Procfile = props => {
 
     const history = useHistory();
 
+    const gotoManageClasses = () => {
+        history.push('/createClass')
+    }
+
     const enrollUserToBox = (mail, boxId) => {
         axios.post(`https://secure-lake-15708.herokuapp.com/users/${mail}/${boxId}`)
             .then(response => {
@@ -106,11 +110,11 @@ const Procfile = props => {
             })
         const file = await res.json()
         setImage(file.secure_url)
-        console.log(file.secure_url)
+        console.log(file.secure_url,'url')
     }
 
     const postUrlPhoto = () => {
-        axios.post(`https://secure-lake-15708.herokuapp.com/users/${localStorage.getItem('email')}`, { url: image })
+        axios.post(`http://localhost:8080/users/${localStorage.getItem('email')}`, { url: image })
             .then(response => {
                 alert('Se Actualizó la foto')
             })
@@ -239,6 +243,7 @@ const Procfile = props => {
                     <div className="flex flex-col">
                         <div className="flex-initial">
                             <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3" onClick={showMembers}>Administrar Miembros</button>
+                            <button className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 min-w-auto rounded-md m-3" onClick={gotoManageClasses}>Administrar Clases</button>
                         </div>
                     </div>
                     : null

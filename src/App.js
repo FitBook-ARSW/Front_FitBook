@@ -9,6 +9,7 @@ import PrivateRoute from './Component/privateRoute/PrivateRoute';
 import AdminRoute from './Component/adminRoute/AdminRoute';
 import ManageUser from './Component/manageUser/ManageUser';
 import AddPublication from './Component/addPublication/AddPublication';
+import Create from './Component/create/Create';
 function App() {
   return (
     <AuthProvider>
@@ -20,6 +21,7 @@ function App() {
         <PrivateRoute path="/bookings" component={Booking} />
         <AdminRoute path="/manage" component={ManageUser} />
         <PrivateRoute path="/addPublication" component={AddPublication}/>
+        <PrivateRoute path="/createClass" component={Create}/>
       </Switch>
     </AuthProvider>
   );
