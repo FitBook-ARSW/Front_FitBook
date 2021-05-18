@@ -10,6 +10,7 @@ import AdminRoute from './Component/adminRoute/AdminRoute';
 import ManageUser from './Component/manageUser/ManageUser';
 import AddPublication from './Component/addPublication/AddPublication';
 import Create from './Component/create/Create';
+import Schedule from './Component/schedule/Schedule';
 function App() {
   return (
     <AuthProvider>
@@ -22,6 +23,7 @@ function App() {
         <AdminRoute path="/manage" component={ManageUser} />
         <PrivateRoute path="/addPublication" component={AddPublication}/>
         <PrivateRoute path="/createClass" component={Create}/>
+        <PrivateRoute path="/schedule" component={Schedule}/>
       </Switch>
     </AuthProvider>
   );
