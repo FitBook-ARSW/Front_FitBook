@@ -114,7 +114,7 @@ const Procfile = props => {
     }
 
     const postUrlPhoto = () => {
-        axios.post(`http://localhost:8080/users/${localStorage.getItem('email')}`, { url: image })
+        axios.post(`https://secure-lake-15708.herokuapp.com/users/${localStorage.getItem('email')}`, { url: image })
             .then(response => {
                 alert('Se Actualizó la foto')
             })

@@ -9,12 +9,23 @@ const Schedule = props => {
     var listClases = <p>loading...</p>;
 
     const getClassForMyBox = () => {
-        axios.get(`http://localhost:8080/class/id/${localStorage.getItem('box')}`)
+        axios.get(`https://secure-lake-15708.herokuapp.com/class/id/${localStorage.getItem('box')}`)
             .then(response => {
                 setClases(response.data);
             }).catch(error => {
                 alert('Error to load clases');
             });
+    }
+
+    const agendarClase = (idclase) => {
+        axios.post(`https://secure-lake-15708.herokuapp.com/agendar/add`,{
+            idclase: idclase,
+            document: localStorage.getItem('cedula').toString()
+        }).then(response => {
+            alert("Se agendo la clase correctamente")
+        }).catch(error => {
+            alert("error al agendar la clase")
+        });
     }
 
     useEffect(() => {
@@ -31,7 +42,7 @@ const Schedule = props => {
                         <th className="px-4 py-3">{ele.day}</th>
                         <th className="px-4 py-3">{ele.beginClass}</th>
                         <th className="px-4 py-3">
-                            {ele.max == 0 ? <button className="bg-gray-500 text-white font-bold py-2 px-4 rounded-full" disabled={true}>Inscribir</button> : <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full">Inscribir</button>}
+                            {ele.max == 0 ? <button className="bg-gray-500 text-white font-bold py-2 px-4 rounded-full" disabled={true}>Inscribir</button> : <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => agendarClase(ele.id)}>Inscribir</button>}
                         </th>
                     </tr>
                 );
